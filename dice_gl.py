@@ -2,8 +2,8 @@ import random
 
 
 #State Initialization of the game
-no_of_players = int(input('enter the number of player'))
-max_Score = int(input('Enter max score'))
+no_of_players = int(input('Enter the number of player : '))
+max_Score = int(input('Enter max score : '))
 score_table = [0] * no_of_players
 prev_score = [0]*no_of_players
 list_of_player = [x+1 for x in range(len(score_table))]
@@ -48,31 +48,31 @@ while(play_end(score_table)):
         if(prev_score[i] != 2):
             if(i+1 not in stack):
                 print("Player-%d its your turn"%(i+1))
-            dice_res = random.randint(1,6)
-            print("Dice result : ",dice_res) 
-            if(score_table[i]+dice_res < max_Score):
-                score_table[i] +=dice_res 
-            else:
-                score_table[i] = max_Score
-            #new if
-            if(score_table[i] < max_Score):
-                if(dice_res == 6 ):
-                    prev_score[i]=0
-                    score_six(i,score_table)
-                elif(dice_res == 1) and (prev_score[i] != 1):
-                    prev_score[i]=dice_res
-                elif dice_res == 1 and prev_score[i] == 1 :
-                    prev_score[i]=2
-                elif dice_res != 1 and prev_score != 0:
-                    prev_score[i]=0
-            else:
-                if( i+1 not in stack):
-                    stack.append(i+1)
-                    list_of_player.remove(i+1)
-                    print("Player %d finished"%(i+1))
-                if(len(list_of_player) == 1):
-                    stack.append(list_of_player[0])
-                    list_of_player.pop(0)
+                dice_res = random.randint(1,6)
+                print("Dice result : ",dice_res) 
+                if(score_table[i]+dice_res < max_Score):
+                    score_table[i] +=dice_res 
+                else:
+                    score_table[i] = max_Score
+                #new if
+                if(score_table[i] < max_Score):
+                    if(dice_res == 6 ):
+                        prev_score[i]=0
+                        score_six(i,score_table)
+                    elif(dice_res == 1) and (prev_score[i] != 1):
+                        prev_score[i]=dice_res
+                    elif dice_res == 1 and prev_score[i] == 1 :
+                        prev_score[i]=2
+                    elif dice_res != 1 and prev_score != 0:
+                        prev_score[i]=0
+                else:
+                    if( i+1 not in stack):
+                        stack.append(i+1)
+                        list_of_player.remove(i+1)
+                        print("Player %d finished"%(i+1))
+                    if(len(list_of_player) == 1):
+                        stack.append(list_of_player[0])
+                        list_of_player.pop(0)
                     
         else:
             prev_score[i] = 0
@@ -85,8 +85,8 @@ while(play_end(score_table)):
 
     
 #Ranking
-print("********game finished*******")        
-print("player rankings are")
+print("*********************__Game Finished__*********************")        
+print("Player rankings are")
 for i in stack:
     print("Player ",i,"\n")
 
