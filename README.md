@@ -1,4 +1,4 @@
-# dicegame
+# Dice Game
 
 This is simple text based dice game.
 1. In order to run this game you need to install the latest version of python 3.
